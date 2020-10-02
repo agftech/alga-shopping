@@ -1,11 +1,14 @@
 import React from "react";
+import AppHeader from "../AppHeader";
 
 import { Wrapper, Container } from "./App.styles";
 
 function App() {
 	return (
 		<Wrapper>
-			<Container />
+			<Container>
+				<AppHeader />
+			</Container>
 		</Wrapper>
 	);
 }
