@@ -1,9 +1,13 @@
 import React from "react";
 
-import { Wrapper } from "./App.styles";
+import { Wrapper, Container } from "./App.styles";
 
 function App() {
-	return <Wrapper>todo: app</Wrapper>;
+	return (
+		<Wrapper>
+			<Container />
+		</Wrapper>
+	);
 }
 
 export default App;
