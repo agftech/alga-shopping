@@ -15,6 +15,7 @@ export const Wrapper = styled.div`
 export const ProgressBar = styled.div`
 	height: 14px;
 	border-radius: 3px;
-	background-color: #004d61;
-	width: 20%;
+	background-color: ${(props) => (props.color ? props.color : "#004D61")};
+	width: ${(props) => (props.percentage ? props.percentage : 0)}%;
+	transition: 0.5s ease;
 `;

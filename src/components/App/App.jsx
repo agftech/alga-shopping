@@ -38,7 +38,7 @@ function App() {
 					right={
 						<div>
 							estatisticas
-							<LineChart />
+							<LineChart color='#004D61' title='saudável' percentage={80} />
 						</div>
 					}
 				/>
