@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Checkbox from "../../shared/Checkbox";
+import LineChart from "../../shared/LineChart";
 import AppContainer from "../AppContainer";
 import AppHeader from "../AppHeader";
 
@@ -34,7 +35,12 @@ function App() {
 							/>
 						</div>
 					}
-					right={<div>estatisticas</div>}
+					right={
+						<div>
+							estatisticas
+							<LineChart />
+						</div>
+					}
 				/>
 			</Container>
 		</Wrapper>
