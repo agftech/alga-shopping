@@ -9,6 +9,7 @@ import { Wrapper, Container } from "./App.styles";
 function App() {
 	const [selectProduct, setSelectProduct] = useState(true);
 	const [listProduct, setListProduct] = useState(false);
+	const colors = ["#62CBC6", "#00ABAD", "#00858C", "#006073", "#004D61"];
 
 	return (
 		<Wrapper>
@@ -38,7 +39,15 @@ function App() {
 					right={
 						<div>
 							estatisticas
-							<LineChart color='#004D61' title='saudável' percentage={80} />
+							<LineChart color={colors[0]} title='saudável' percentage={80} />
+							<LineChart
+								color={colors[1]}
+								title='não saudável'
+								percentage={20}
+							/>
+							<LineChart color={colors[2]} title='limpeza' percentage={35} />
+							<LineChart color={colors[3]} title='condimentos' percentage={5} />
+							<LineChart color={colors[4]} title='outros' percentage={15} />
 						</div>
 					}
 				/>
