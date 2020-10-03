@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Checkbox from "../../shared/Checkbox";
 import AppContainer from "../AppContainer";
 import AppHeader from "../AppHeader";
@@ -6,6 +6,9 @@ import AppHeader from "../AppHeader";
 import { Wrapper, Container } from "./App.styles";
 
 function App() {
+	const [selectProduct, setSelectProduct] = useState(true);
+	const [listProduct, setListProduct] = useState(false);
+
 	return (
 		<Wrapper>
 			<Container>
@@ -14,21 +17,24 @@ function App() {
 					left={
 						<div>
 							produtos disponiveis:
-							<Checkbox value='product' title='product' onClick={() => {}} />
+							<Checkbox
+								value={selectProduct}
+								title='product'
+								onClick={() => setSelectProduct(!selectProduct)}
+							/>
 						</div>
 					}
 					middle={
 						<div>
 							sua lista de compras
-							<Checkbox value='list' title='list' onClick={() => {}} />
+							<Checkbox
+								value={listProduct}
+								title='list'
+								onClick={() => setListProduct(!listProduct)}
+							/>
 						</div>
 					}
-					right={
-						<div>
-							estatisticas
-							<Checkbox value='stats' title='stats' onClick={() => {}} />
-						</div>
-					}
+					right={<div>estatisticas</div>}
 				/>
 			</Container>
 		</Wrapper>
