@@ -3,11 +3,11 @@ import Checkbox from "../../shared/Checkbox";
 import LineChart from "../../shared/LineChart";
 import AppContainer from "../AppContainer";
 import AppHeader from "../AppHeader";
+import ShoppingList from "../ShoppingList";
 
 import { Wrapper, Container } from "./App.styles";
 
 function App() {
-	const [selectProduct, setSelectProduct] = useState(true);
 	const [listProduct, setListProduct] = useState(false);
 	const colors = ["#62CBC6", "#00ABAD", "#00858C", "#006073", "#004D61"];
 
@@ -16,16 +16,7 @@ function App() {
 			<Container>
 				<AppHeader />
 				<AppContainer
-					left={
-						<div>
-							produtos disponiveis:
-							<Checkbox
-								value={selectProduct}
-								title='product'
-								onClick={() => setSelectProduct(!selectProduct)}
-							/>
-						</div>
-					}
+					left={<ShoppingList />}
 					middle={
 						<div>
 							sua lista de compras
