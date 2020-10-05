@@ -11,16 +11,31 @@ function App() {
 	const [products, setProducts] = useState(productsMock.products);
 	const colors = ["#62CBC6", "#00ABAD", "#00858C", "#006073", "#004D61"];
 
+	function handleToggle(id) {
+		const newProducts = products.map((product) =>
+			product.id === id ? { ...product, checked: !product.checked } : product
+		);
+		setProducts(newProducts);
+	}
+
 	return (
 		<Wrapper>
 			<Container>
 				<AppHeader />
 				<AppContainer
 					left={
-						<ShoppingList title='Produtos Disponíveis' products={products} />
+						<ShoppingList
+							title='Produtos Disponíveis'
+							products={products}
+							onToggle={handleToggle}
+						/>
 					}
 					middle={
-						<ShoppingList title='Sua lista de compras' products={products} />
+						<ShoppingList
+							title='Sua lista de compras'
+							products={products}
+							onToggle={handleToggle}
+						/>
 					}
 					right={
 						<div>
