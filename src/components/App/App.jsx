@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import LineChart from "../../shared/LineChart";
 import AppContainer from "../AppContainer";
 import AppHeader from "../AppHeader";
@@ -8,8 +8,16 @@ import productsMock from "../../mocks/products.json";
 import { Wrapper, Container } from "./App.styles";
 
 function App() {
-	const [products, setProducts] = useState(productsMock.products);
 	const colors = ["#62CBC6", "#00ABAD", "#00858C", "#006073", "#004D61"];
+
+	const [products, setProducts] = useState(productsMock.products);
+	const [selectedProducts, setSelectedProducts] = useState([]);
+
+	useEffect(() => {
+		const newSelectedProducts = products.filter((product) => product.checked);
+
+		setSelectedProducts(newSelectedProducts);
+	}, [products]);
 
 	function handleToggle(id) {
 		const newProducts = products.map((product) =>
@@ -33,7 +41,7 @@ function App() {
 					middle={
 						<ShoppingList
 							title='Sua lista de compras'
-							products={products}
+							products={selectedProducts}
 							onToggle={handleToggle}
 						/>
 					}
