@@ -5,7 +5,13 @@ import AppHeader from "../AppHeader";
 import ShoppingList from "../ShoppingList";
 import productsMock from "../../mocks/products.json";
 
-import { Wrapper, Container } from "./App.styles";
+import {
+	Wrapper,
+	Container,
+	ContainerStats,
+	TitleH1,
+	TitleH2,
+} from "./App.styles";
 
 import extractPercentage from "../../utils/extractPercentage";
 import { formatCurrency } from "../../utils/formatterCurrency";
@@ -58,8 +64,8 @@ function App() {
 						/>
 					}
 					right={
-						<div>
-							estatísticas:
+						<ContainerStats>
+							<TitleH1>estatísticas:</TitleH1>
 							<LineChart
 								color={colors[0]}
 								title='saudável'
@@ -111,10 +117,10 @@ function App() {
 								)}
 							/>
 							<div>
-								<div>previsão de gastos:</div>
-								<div>{formatCurrency(totalPrice)}</div>
+								<TitleH2>previsão de gastos:</TitleH2>
+								<TitleH1>{formatCurrency(totalPrice)}</TitleH1>
 							</div>
-						</div>
+						</ContainerStats>
 					}
 				/>
 			</Container>
