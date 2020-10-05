@@ -6,19 +6,30 @@ import ShoppingList from "../ShoppingList";
 import productsMock from "../../mocks/products.json";
 
 import { Wrapper, Container } from "./App.styles";
+
 import extractPercentage from "../../utils/extractPercentage";
+import { formatCurrency } from "../../utils/formatterCurrency";
 
 function App() {
 	const colors = ["#62CBC6", "#00ABAD", "#00858C", "#006073", "#004D61"];
 
 	const [products, setProducts] = useState(productsMock.products);
 	const [selectedProducts, setSelectedProducts] = useState([]);
+	const [totalPrice, setTotalPrice] = useState(0);
 
 	useEffect(() => {
 		const newSelectedProducts = products.filter((product) => product.checked);
 
 		setSelectedProducts(newSelectedProducts);
 	}, [products]);
+
+	useEffect(() => {
+		const total = selectedProducts
+			.map((product) => product.price)
+			.reduce((a, b) => a + b, 0);
+
+		setTotalPrice(total);
+	}, [selectedProducts]);
 
 	function handleToggle(id) {
 		const newProducts = products.map((product) =>
@@ -48,7 +59,7 @@ function App() {
 					}
 					right={
 						<div>
-							estatísticas %:
+							estatísticas:
 							<LineChart
 								color={colors[0]}
 								title='saudável'
@@ -99,6 +110,10 @@ function App() {
 									).length
 								)}
 							/>
+							<div>
+								<div>previsão de gastos:</div>
+								<div>{formatCurrency(totalPrice)}</div>
+							</div>
 						</div>
 					}
 				/>
