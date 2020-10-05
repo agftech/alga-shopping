@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import Checkbox from "../../shared/Checkbox";
 import LineChart from "../../shared/LineChart";
 import AppContainer from "../AppContainer";
 import AppHeader from "../AppHeader";
 import ShoppingList from "../ShoppingList";
+import productsMock from "../../mocks/products.json";
 
 import { Wrapper, Container } from "./App.styles";
 
 function App() {
-	const [listProduct, setListProduct] = useState(false);
+	const [products, setProducts] = useState(productsMock.products);
 	const colors = ["#62CBC6", "#00ABAD", "#00858C", "#006073", "#004D61"];
 
 	return (
@@ -16,16 +16,11 @@ function App() {
 			<Container>
 				<AppHeader />
 				<AppContainer
-					left={<ShoppingList />}
+					left={
+						<ShoppingList title='Produtos Disponíveis' products={products} />
+					}
 					middle={
-						<div>
-							sua lista de compras
-							<Checkbox
-								value={listProduct}
-								title='list'
-								onClick={() => setListProduct(!listProduct)}
-							/>
-						</div>
+						<ShoppingList title='Sua lista de compras' products={products} />
 					}
 					right={
 						<div>

@@ -1,18 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import Checkbox from "../../shared/Checkbox";
 import { Wrapper, Title, Array } from "./ShoppingList.styles";
 
-function ShoppingList() {
-	const [selectProduct, setSelectProduct] = useState(true);
+function ShoppingList({ title, products }) {
 	return (
 		<Wrapper>
-			<Title>Produtos Disponíveis</Title>
+			<Title>{title}:</Title>
 			<Array>
-				<Checkbox
-					value={selectProduct}
-					title='products'
-					onClick={() => setSelectProduct(!selectProduct)}
-				/>
+				{products.map((product) => (
+					<Checkbox
+						key={product.id}
+						value={product.checked}
+						title={product.name}
+					/>
+				))}
 			</Array>
 		</Wrapper>
 	);
