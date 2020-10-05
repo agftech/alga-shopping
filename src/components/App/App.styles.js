@@ -44,3 +44,15 @@ export const ContainerStats = styled.div`
 	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
 	border-radius: 10px;
 `;
+
+export const Button = styled.button`
+	margin-top: 40px;
+	background-color: #00abad;
+	border: none;
+	border-radius: 7px;
+	color: white;
+	padding: 10px 24px;
+	text-align: center;
+	font-size: 14px;
+	cursor: pointer;
+`;

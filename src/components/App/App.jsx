@@ -11,6 +11,7 @@ import {
 	ContainerStats,
 	TitleH1,
 	TitleH2,
+	Button,
 } from "./App.styles";
 
 import extractPercentage from "../../utils/extractPercentage";
@@ -42,6 +43,11 @@ function App() {
 			product.id === id ? { ...product, checked: !product.checked } : product
 		);
 		setProducts(newProducts);
+	}
+
+	function clearShoppingList() {
+		setSelectedProducts([]);
+		setProducts(productsMock.products);
 	}
 
 	return (
@@ -119,6 +125,11 @@ function App() {
 							<div>
 								<TitleH2>previsão de gastos:</TitleH2>
 								<TitleH1>{formatCurrency(totalPrice)}</TitleH1>
+							</div>
+							<div style={{ textAlign: "center" }}>
+								<Button type='button' onClick={clearShoppingList}>
+									Limpar Lista
+								</Button>
 							</div>
 						</ContainerStats>
 					}
