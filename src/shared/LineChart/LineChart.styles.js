@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
 	margin-bottom: 12px;
 
 	span {
+		margin-top: 8px;
 		font-size: 12px;
 		color: #004d61;
 		margin-bottom: 4px;
